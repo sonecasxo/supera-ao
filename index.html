@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Encontro de Superações</title>
+<meta name="description" content="Um espaço para compartilhar momentos de superação, esperança e recomeços.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f7f4ef;--text:#26312d;--muted:#68736e;--accent:#6d927f;--accent-dark:#466b5a;--soft:#dcebe2;--paper:#fff;--shadow:0 18px 50px rgba(48,63,56,.10)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--text);background:radial-gradient(circle at 10% 10%,#e5f0e8 0,transparent 28%),radial-gradient(circle at 90% 15%,#f1e3cd 0,transparent 25%),var(--bg);font-family:"DM Sans",sans-serif}
+header{position:relative;overflow:hidden;min-height:650px;display:flex;align-items:center;justify-content:center;text-align:center;padding:80px 22px;background:linear-gradient(135deg,rgba(49,76,65,.94),rgba(91,126,108,.84));color:#fff}
+header:before,header:after{content:"";position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,.15)}header:before{width:520px;height:520px;right:-180px;top:-180px}header:after{width:360px;height:360px;left:-160px;bottom:-180px}
+.hero{position:relative;z-index:1;max-width:850px}.tag{display:inline-block;padding:9px 16px;border:1px solid rgba(255,255,255,.25);border-radius:999px;background:rgba(255,255,255,.1);backdrop-filter:blur(10px);font-size:13px;letter-spacing:1.5px;text-transform:uppercase}
+h1{margin:24px 0 18px;font-family:"Playfair Display",serif;font-size:clamp(48px,8vw,88px);line-height:.98;letter-spacing:-2px}.hero p{margin:auto;max-width:700px;color:rgba(255,255,255,.88);font-size:clamp(17px,2.2vw,21px);line-height:1.8}
+.hero-buttons{margin-top:34px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:14px;padding:14px 22px;font:inherit;font-weight:700;text-decoration:none;cursor:pointer;transition:.2s}.btn:hover{transform:translateY(-2px)}.primary{background:#fff;color:var(--accent-dark);box-shadow:0 10px 25px rgba(0,0,0,.12)}.outline{color:#fff;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.08)}
+main{width:min(1120px,calc(100% - 32px));margin:-55px auto 80px;position:relative;z-index:2}.intro,.form-card{background:rgba(255,255,255,.9);backdrop-filter:blur(12px);border-radius:24px;box-shadow:var(--shadow)}.intro{padding:38px;text-align:center;border:1px solid rgba(255,255,255,.8)}.intro h2,.section-title,.form-card h2,.modal h2{font-family:"Playfair Display",serif}.intro h2{margin:0 0 12px;font-size:34px}.intro p{max-width:760px;margin:auto;color:var(--muted);line-height:1.8}
+.form-card{margin-top:26px;padding:34px}.form-card h2{margin:0 0 6px;font-size:30px}.subtitle{color:var(--muted);margin:0 0 25px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.field{display:flex;flex-direction:column;gap:8px}.full{grid-column:1/-1}label{font-weight:700;font-size:14px}input,textarea{width:100%;border:1px solid #dce2de;background:#fbfcfb;color:var(--text);border-radius:14px;padding:14px 15px;font:inherit;outline:none}textarea{min-height:150px;resize:vertical}input:focus,textarea:focus{border-color:var(--accent);box-shadow:0 0 0 4px rgba(109,146,127,.12)}input[type=file]{padding:11px}.submit-row{margin-top:20px;display:flex;justify-content:flex-end}.submit{background:var(--accent-dark);color:#fff}.submit:disabled{opacity:.65;cursor:wait;transform:none}
+.status{margin-top:16px;padding:13px 16px;border-radius:12px;display:none;font-weight:600}.status.show{display:block}.status.ok{background:var(--soft);color:var(--accent-dark)}.status.err{background:#f8e4e0;color:#8d4a3f}
+.section-head{margin:65px 0 25px;display:flex;align-items:end;justify-content:space-between;gap:20px}.section-title{margin:0;font-size:40px}.section-description{margin:5px 0 0;color:var(--muted)}.count{color:var(--muted);font-size:14px}.relatos{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{overflow:hidden;background:#fff;border-radius:22px;box-shadow:0 12px 35px rgba(48,63,56,.08);border:1px solid #edf0ee;transition:.25s;cursor:pointer}.card:hover{transform:translateY(-5px);box-shadow:0 20px 45px rgba(48,63,56,.13)}.card-image{width:100%;height:230px;object-fit:cover;display:block}.no-image{height:150px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#e5f0e8,#f1e3cd);color:var(--accent-dark);font-family:"Playfair Display",serif;font-size:25px}.card-body{padding:24px}.card h3{margin:0 0 11px;font-family:"Playfair Display",serif;font-size:25px}.card p{margin:0;color:#5f6b65;line-height:1.75;white-space:pre-line;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}.date{display:block;margin-top:20px;color:#9aa39f;font-size:12px}.empty{grid-column:1/-1;text-align:center;padding:60px 25px;border:1px dashed #cfd8d2;border-radius:22px;color:var(--muted);background:rgba(255,255,255,.55)}
+footer{padding:45px 20px 60px;text-align:center;color:#7a8580;font-size:14px}footer strong{color:var(--accent-dark)}
+.modal-backdrop{position:fixed;inset:0;background:rgba(26,38,33,.68);backdrop-filter:blur(7px);display:none;align-items:center;justify-content:center;padding:20px;z-index:20}.modal-backdrop.show{display:flex}.modal{position:relative;width:min(760px,100%);max-height:90vh;overflow:auto;background:#fff;border-radius:26px;box-shadow:0 30px 90px rgba(0,0,0,.25);animation:pop .2s ease}.modal img{width:100%;max-height:420px;object-fit:cover;display:block}.modal-content{padding:30px}.modal h2{margin:0 0 14px;font-size:34px}.modal-text{white-space:pre-line;color:#5f6b65;line-height:1.85;font-size:16px}.close{position:absolute;right:16px;top:16px;width:42px;height:42px;border:0;border-radius:50%;background:rgba(0,0,0,.55);color:#fff;font-size:24px;cursor:pointer;z-index:2}.modal-no-image{height:220px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#e5f0e8,#f1e3cd);font:600 30px "Playfair Display",serif;color:var(--accent-dark)}
+@keyframes pop{from{opacity:0;transform:translateY(12px) scale(.98)}to{opacity:1;transform:none}}
+@media(max-width:850px){.relatos{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:1fr}.full{grid-column:auto}}@media(max-width:600px){header{min-height:610px}.intro,.form-card{padding:25px 20px}.relatos{grid-template-columns:1fr}.section-head{display:block}.count{display:block;margin-top:10px}.section-title{font-size:34px}.modal-content{padding:24px}.modal h2{font-size:29px}}
+
+/* Boas-vindas e assistente Gemini */
+.welcome-backdrop{position:fixed;inset:0;z-index:40;background:rgba(26,38,33,.72);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;padding:20px}
+.welcome-box{width:min(520px,100%);background:#fff;border-radius:26px;padding:34px;box-shadow:0 30px 90px rgba(0,0,0,.25);text-align:center}
+.welcome-box .welcome-icon{font-size:42px;margin-bottom:10px}
+.welcome-box h2{font:700 32px "Playfair Display",serif;margin:0 0 12px;color:var(--accent-dark)}
+.welcome-box p{line-height:1.75;color:var(--muted);margin:0 0 22px}
+.chat-launcher{position:fixed;right:22px;bottom:22px;z-index:30;border:0;border-radius:999px;background:var(--accent-dark);color:#fff;padding:15px 20px;font:700 15px "DM Sans",sans-serif;box-shadow:0 12px 30px rgba(35,67,52,.3);cursor:pointer}
+.chat-panel{position:fixed;right:22px;bottom:88px;z-index:31;width:min(390px,calc(100vw - 28px));height:min(570px,calc(100vh - 120px));background:#fff;border:1px solid #e3e9e4;border-radius:22px;box-shadow:0 24px 70px rgba(0,0,0,.2);display:none;overflow:hidden;flex-direction:column}
+.chat-panel.open{display:flex}
+.chat-head{background:linear-gradient(135deg,#466b5a,#6d927f);color:#fff;padding:17px 18px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.chat-head strong{display:block;font-size:16px}.chat-head small{display:block;opacity:.85;margin-top:3px}
+.chat-close{border:0;background:rgba(255,255,255,.15);color:#fff;border-radius:10px;width:34px;height:34px;font-size:22px;cursor:pointer}
+.chat-messages{flex:1;overflow:auto;padding:16px;background:#f7f8f6;display:flex;flex-direction:column;gap:12px}
+.chat-bubble{max-width:88%;padding:11px 13px;border-radius:15px;line-height:1.55;font-size:14px;white-space:pre-wrap;overflow-wrap:anywhere}
+.chat-bubble.bot{align-self:flex-start;background:#fff;border:1px solid #e5e9e5;border-bottom-left-radius:5px}
+.chat-bubble.user{align-self:flex-end;background:#dcebe2;color:#26312d;border-bottom-right-radius:5px}
+.chat-compose{padding:12px;border-top:1px solid #e5e9e5;display:flex;gap:8px;background:#fff}
+.chat-compose textarea{min-height:46px;max-height:110px;resize:vertical;padding:12px;border-radius:12px;font-size:14px}
+.chat-send{border:0;border-radius:12px;background:var(--accent-dark);color:#fff;font-weight:700;padding:0 15px;cursor:pointer}
+.chat-send:disabled{opacity:.55;cursor:wait}
+.chat-note{padding:7px 13px;font-size:11px;color:#7b8580;background:#fff}
+@media(max-width:600px){.welcome-box{padding:27px 22px}.chat-panel{right:14px;bottom:82px}.chat-launcher{right:14px;bottom:14px}}
+
+</style>
+</head>
+<body>
+<header>
+<div class="hero">
+<span class="tag">Um espaço para recomeçar</span>
+<h1>Encontro de<br>Superações</h1>
+<p>Momentos reais, palavras que acolhem e lembranças de que mesmo depois dos dias difíceis, novos capítulos podem nascer.</p>
+<div class="hero-buttons">
+<a class="btn primary" href="#compartilhar">Compartilhar momento</a>
+<a class="btn outline" href="#momentos">Ver momentos</a>
+</div>
+</div>
+</header>
+
+<main>
+<section class="intro">
+<h2>Todo momento importa.</h2>
+<p>Todos enfrentamos momentos que parecem difíceis demais. Este espaço existe para lembrar que uma fase difícil não define uma vida inteira. Compartilhe uma experiência, uma conquista, um recomeço ou palavras que possam inspirar alguém.</p>
+</section>
+
+<section class="form-card" id="compartilhar">
+<h2>Compartilhe um momento</h2>
+<p class="subtitle">Seu momento pode ser a palavra que alguém precisava encontrar hoje.</p>
+<form id="relatoForm">
+<div class="grid">
+<div class="field"><label for="titulo">Título</label><input id="titulo" maxlength="100" placeholder="Ex.: O dia em que decidi recomeçar" required></div>
+<div class="field"><label for="foto">Foto (opcional)</label><input id="foto" type="file" accept="image/png,image/jpeg,image/webp,image/gif"></div>
+<div class="field full"><label for="texto">Seu momento</label><textarea id="texto" maxlength="5000" placeholder="Conte seu momento, uma conquista, uma dificuldade que você conseguiu atravessar ou uma mensagem de esperança..." required></textarea></div>
+</div>
+<div class="submit-row"><button class="btn submit" id="submitBtn" type="submit">Adicionar relato</button></div>
+<div id="status" class="status"></div>
+</form>
+</section>
+
+<section id="momentos">
+<div class="section-head">
+<div><h2 class="section-title">Momentos que inspiram</h2><p class="section-description">Clique em um relato para ler o momento completo.</p></div>
+<span class="count" id="count">Carregando...</span>
+</div>
+<div class="relatos" id="relatos"></div>
+</section>
+</main>
+
+<footer><strong>Encontro de Superações</strong><br>Um espaço para lembrar que cada momento pode ser guardado.</footer>
+
+
+<div class="welcome-backdrop" id="welcomeBackdrop" role="dialog" aria-modal="true" aria-labelledby="welcomeTitle">
+  <div class="welcome-box">
+    <div class="welcome-icon">🌿</div>
+    <h2 id="welcomeTitle">Que bom ter você aqui.</h2>
+    <p>Este é um espaço de acolhimento, esperança e recomeços. Você pode compartilhar sua história e, se quiser conversar, nosso assistente está aqui para ouvir e ajudar com palavras de apoio.</p>
+    <button class="btn submit" id="welcomeContinue" type="button">Entrar no espaço</button>
+  </div>
+</div>
+<button class="chat-launcher" id="chatLauncher" type="button" aria-expanded="false">💬 Conversar com a IA</button>
+<section class="chat-panel" id="chatPanel" aria-label="Conversa com o assistente">
+  <div class="chat-head">
+    <div><strong>Assistente de acolhimento</strong><small>Venice AI · um espaço para conversar</small></div>
+    <button class="chat-close" id="chatClose" type="button" aria-label="Fechar chat">×</button>
+  </div>
+  <div class="chat-messages" id="chatMessages" aria-live="polite">
+    <div class="chat-bubble bot">Oi! 💚 Pode conversar comigo. O que está passando pela sua cabeça hoje?</div>
+  </div>
+  <div class="chat-note">A IA pode errar e não substitui apoio profissional.</div>
+  <form class="chat-compose" id="chatForm">
+    <textarea id="chatInput" maxlength="4000" rows="1" placeholder="Escreva sua mensagem..." aria-label="Sua mensagem" required></textarea>
+    <button class="chat-send" id="chatSend" type="submit">Enviar</button>
+  </form>
+</section>
+
+<div class="modal-backdrop" id="modalBackdrop">
+<div class="modal" role="dialog" aria-modal="true">
+<button class="close" id="closeModal" aria-label="Fechar">×</button>
+<div id="modalImage"></div>
+<div class="modal-content"><h2 id="modalTitle"></h2><div class="modal-text" id="modalText"></div></div>
+</div>
+</div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-app.js";
+import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-auth.js";
+import { getDatabase, ref as dbRef, push, get, query, orderByChild, limitToLast } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-database.js";
+
+/*
+  1) Crie um projeto em https://console.firebase.google.com/
+  2) Registre um app Web e substitua os valores abaixo pela configuração do seu app.
+  3) Ative Authentication > Sign-in method > Anonymous.
+  4) Crie Realtime Database e Storage.
+*/
+const firebaseConfig = {
+  apiKey: "AIzaSyABjL9YdF1V_3xFHdDj_YhS7Z_08zpwpsU",
+  authDomain: "site-3f75f.firebaseapp.com",
+  projectId: "site-3f75f",
+  storageBucket: "site-3f75f.firebasestorage.app",
+  messagingSenderId: "1048744166939",
+  appId: "1:1048744166939:web:37d8b0ab46fd735cf59abe",
+  measurementId: "G-8B9Z0GS5ZN"
+};
+
+const configReady = !Object.values(firebaseConfig).some(v => String(v).startsWith("COLE_") || String(v).includes("SEU-PROJETO"));
+const form = document.getElementById("relatoForm");
+const titleInput = document.getElementById("titulo");
+const textInput = document.getElementById("texto");
+const photoInput = document.getElementById("foto");
+const submitBtn = document.getElementById("submitBtn");
+const statusBox = document.getElementById("status");
+const relatosBox = document.getElementById("relatos");
+const countBox = document.getElementById("count");
+const modalBackdrop = document.getElementById("modalBackdrop");
+const modalImage = document.getElementById("modalImage");
+const modalTitle = document.getElementById("modalTitle");
+const modalText = document.getElementById("modalText");
+
+function showStatus(message, type="ok") {
+  statusBox.textContent = message;
+  statusBox.className = "status show " + type;
+}
+function escapeHtml(value) {
+  return String(value ?? "").replace(/[&<>"']/g, c => ({
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
+  }[c]));
+}
+function formatDate(value) {
+  if (!value) return "";
+  const date = new Date(value);
+  return Number.isNaN(date.getTime()) ? "" : new Intl.DateTimeFormat("pt-BR", {dateStyle:"long"}).format(date);
+}
+function openModal(relato) {
+  modalTitle.textContent = relato.titulo || "Momento compartilhado";
+  modalText.textContent = relato.texto || "";
+  if (relato.imagem_url) {
+    modalImage.innerHTML = `<img src="${escapeHtml(relato.imagem_url)}" alt="Imagem do relato">`;
+  } else {
+    modalImage.innerHTML = `<div class="modal-no-image">Um novo capítulo</div>`;
+  }
+  modalBackdrop.classList.add("show");
+  document.body.style.overflow = "hidden";
+}
+function closeModal() {
+  modalBackdrop.classList.remove("show");
+  document.body.style.overflow = "";
+}
+document.getElementById("closeModal").addEventListener("click", closeModal);
+modalBackdrop.addEventListener("click", e => { if (e.target === modalBackdrop) closeModal(); });
+document.addEventListener("keydown", e => { if (e.key === "Escape") closeModal(); });
+
+function renderRelatos(relatos) {
+  countBox.textContent = `${relatos.length} relato(s) compartilhado(s)`;
+  if (!relatos.length) {
+    relatosBox.innerHTML = `<div class="empty"><h3>Ainda não há momentos aqui.</h3><p>Seja a primeira pessoa a compartilhar um momento de superação.</p></div>`;
+    return;
+  }
+  relatosBox.innerHTML = relatos.map((r, index) => `
+    <article class="card" data-index="${index}">
+      ${r.imagem_url
+        ? `<img class="card-image" src="${escapeHtml(r.imagem_url)}" alt="Imagem do relato" loading="lazy">`
+        : `<div class="no-image">Um novo capítulo</div>`}
+      <div class="card-body">
+        <h3>${escapeHtml(r.titulo)}</h3>
+        <p>${escapeHtml(r.texto)}</p>
+        <span class="date">${formatDate(r.criado_em)}</span>
+      </div>
+    </article>
+  `).join("");
+  [...relatosBox.querySelectorAll(".card")].forEach(card => {
+    card.addEventListener("click", () => openModal(relatos[Number(card.dataset.index)]));
+  });
+}
+
+let app, auth, database;
+async function initializeFirebase() {
+  if (!configReady) {
+    countBox.textContent = "Configuração pendente";
+    relatosBox.innerHTML = `<div class="empty"><h3>Falta conectar o banco de dados.</h3><p>Abra o arquivo <strong>index.html</strong> e preencha o objeto <code>firebaseConfig</code> com os dados do seu projeto Firebase. Veja o passo a passo no README.md.</p></div>`;
+    showStatus("O site está pronto, mas falta configurar o Firebase.", "err");
+    return false;
+  }
+  app = initializeApp(firebaseConfig);
+  auth = getAuth(app);
+  database = getDatabase(app);
+  await signInAnonymously(auth);
+  return true;
+}
+
+async function compressImageToDataUrl(file) {
+  const image = await new Promise((resolve, reject) => {
+    const img = new Image();
+    const url = URL.createObjectURL(file);
+    img.onload = () => { URL.revokeObjectURL(url); resolve(img); };
+    img.onerror = () => { URL.revokeObjectURL(url); reject(new Error("Não foi possível abrir a imagem.")); };
+    img.src = url;
+  });
+  const maxSide = 700;
+  const scale = Math.min(1, maxSide / Math.max(image.width, image.height));
+  const canvas = document.createElement("canvas");
+  canvas.width = Math.max(1, Math.round(image.width * scale));
+  canvas.height = Math.max(1, Math.round(image.height * scale));
+  const ctx = canvas.getContext("2d");
+  ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+  return canvas.toDataURL("image/jpeg", 0.62);
+}
+
+async function loadRelatos() {
+  try {
+    if (!database) return;
+    const q = query(dbRef(database, "relatos"), orderByChild("criado_em"), limitToLast(100));
+    const snapshot = await get(q);
+    const relatos = [];
+    snapshot.forEach(child => relatos.push({ id: child.key, ...child.val() }));
+    relatos.sort((a,b) => (b.criado_em || 0) - (a.criado_em || 0));
+    renderRelatos(relatos);
+  } catch (error) {
+    console.error("Erro ao carregar relatos:", error);
+    countBox.textContent = "Erro";
+    relatosBox.innerHTML = `<div class="empty"><h3>Não foi possível carregar as histórias.</h3><p>Confira a configuração e as regras do Firebase e tente novamente.</p></div>`;
+  }
+}
+
+form.addEventListener("submit", async e => {
+  e.preventDefault();
+  const titulo = titleInput.value.trim();
+  const texto = textInput.value.trim();
+  const file = photoInput.files[0];
+  if (!titulo || !texto) {
+    showStatus("Preencha o título e o texto.", "err");
+    return;
+  }
+  if (titulo.length > 100 || texto.length > 5000) {
+    showStatus("O título deve ter até 100 caracteres e o texto até 5.000.", "err");
+    return;
+  }
+  if (file && (!file.type.startsWith("image/") || file.size > 10 * 1024 * 1024)) {
+    showStatus("Envie uma imagem de até 10 MB.", "err");
+    return;
+  }
+  if (!database || !auth?.currentUser) {
+    showStatus("O Firebase ainda não está configurado. Consulte o README.md.", "err");
+    return;
+  }
+
+  submitBtn.disabled = true;
+  submitBtn.textContent = "Publicando...";
+  statusBox.className = "status";
+  try {
+    let imagem_url = "";
+    if (file) {
+      // Compacta a imagem no navegador e a guarda diretamente no Realtime Database.
+      // Isso evita precisar do Firebase Storage/Plano Blaze, com limite conservador.
+      imagem_url = await compressImageToDataUrl(file);
+      if (imagem_url.length > 400000) {
+        throw new Error("IMAGE_TOO_LARGE_AFTER_COMPRESSION");
+      }
+    }
+    const relato = {
+      titulo,
+      texto,
+      imagem_url,
+      criado_em: Date.now()
+    };
+    await push(dbRef(database, "relatos"), relato);
+    form.reset();
+    showStatus("Relato adicionado com sucesso. Obrigado por compartilhar seu momento.", "ok");
+    await loadRelatos();
+    document.getElementById("momentos").scrollIntoView({behavior:"smooth"});
+  } catch (error) {
+    console.error("Erro ao publicar relato:", error);
+    const message = error?.message === "IMAGE_TOO_LARGE_AFTER_COMPRESSION"
+      ? "A imagem ainda ficou grande demais. Escolha uma foto menor."
+      : error?.code === "PERMISSION_DENIED"
+        ? "O Firebase recusou a gravação. Confira as regras do Realtime Database no README.md."
+        : "Não foi possível salvar. Confira a configuração e as regras do Firebase.";
+    showStatus(message, "err");
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = "Adicionar relato";
+  }
+});
+
+try {
+  if (await initializeFirebase()) await loadRelatos();
+} catch (error) {
+  console.error("Falha na inicialização do Firebase:", error);
+  countBox.textContent = "Erro de conexão";
+  const code = error?.code || "sem-código";
+  const detail = error?.message || "Erro desconhecido";
+  relatosBox.innerHTML = `<div class="empty"><h3>Não foi possível conectar ao Firebase.</h3><p>Confira se o Realtime Database existe, se o login anônimo está ativado e se o domínio está autorizado em Authentication → Settings → Authorized domains.</p><p><strong>Código do erro:</strong> ${escapeHtml(code)}</p><p><strong>Detalhe:</strong> ${escapeHtml(detail)}</p></div>`;
+  showStatus("Falha ao conectar ao Firebase: " + code, "err");
+}
+
+// Boas-vindas e chat com Venice AI.
+// Cole a chave da Venice em VENICE_API_KEY. Não use essa chave no firebaseConfig.
+const VENICE_API_KEY = "VENICE_INFERENCE_KEY_TTqQRpm0jfpuZPaJMuyWIA2D89wBvActgAlduZpJPO";
+const VENICE_MODEL = "venice-uncensored"; // Troque se esse modelo não estiver habilitado na sua conta.
+const VENICE_API_URL = "https://api.venice.ai/api/v1/chat/completions";
+const welcomeBackdrop = document.getElementById("welcomeBackdrop");
+document.getElementById("welcomeContinue").addEventListener("click", () => welcomeBackdrop.remove());
+
+const chatPanel = document.getElementById("chatPanel");
+const chatLauncher = document.getElementById("chatLauncher");
+const chatMessages = document.getElementById("chatMessages");
+const chatForm = document.getElementById("chatForm");
+const chatInput = document.getElementById("chatInput");
+const chatSend = document.getElementById("chatSend");
+const chatHistory = [];
+
+function addChatMessage(text, who) {
+  const bubble = document.createElement("div");
+  bubble.className = "chat-bubble " + (who === "user" ? "user" : "bot");
+  bubble.textContent = text;
+  chatMessages.appendChild(bubble);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+  return bubble;
+}
+function setChatOpen(open) {
+  chatPanel.classList.toggle("open", open);
+  chatLauncher.setAttribute("aria-expanded", String(open));
+  if (open) chatInput.focus();
+}
+chatLauncher.addEventListener("click", () => setChatOpen(!chatPanel.classList.contains("open")));
+document.getElementById("chatClose").addEventListener("click", () => setChatOpen(false));
+
+chatForm.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  const message = chatInput.value.trim();
+  if (!message || chatSend.disabled) return;
+
+  if (!VENICE_API_KEY || VENICE_API_KEY === "COLE_SUA_CHAVE_DA_VENICE_AQUI") {
+    addChatMessage("Para ativar a Venice AI, abra o HTML e substitua COLE_SUA_CHAVE_DA_VENICE_AQUI pela sua chave da API Venice.", "bot");
+    return;
+  }
+
+  addChatMessage(message, "user");
+  chatHistory.push({ role: "user", parts: [{ text: message }] });
+  chatInput.value = "";
+  chatSend.disabled = true;
+  chatSend.textContent = "…";
+  const waiting = addChatMessage("Estou pensando em como te responder…", "bot");
+
+  try {
+    const response = await fetch(VENICE_API_URL, {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${VENICE_API_KEY}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        model: VENICE_MODEL,
+        messages: [
+          {
+            role: "system",
+            content: "Você é um assistente acolhedor do site Encontro de Superações. Responda em português brasileiro, com empatia, clareza e sem julgar. Não diga que substitui psicólogos ou médicos. Não incentive autolesão. Se a pessoa estiver em perigo imediato ou pensando em se machucar, incentive-a a procurar alguém de confiança e ajuda urgente; no Brasil, pode ligar para o CVV no 188 para conversar e para o SAMU 192 em emergência."
+          },
+          ...chatHistory.slice(-16).map(item => ({
+            role: item.role === "model" ? "assistant" : "user",
+            content: item.parts.map(part => part.text || "").join("")
+          }))
+        ],
+        temperature: 0.7,
+        max_tokens: 700
+      })
+    });
+    const data = await response.json();
+    if (!response.ok) {
+      const detail = data?.error?.message || data?.message || "Não foi possível conectar à Venice AI.";
+      throw new Error(detail);
+    }
+    const answer = data?.choices?.[0]?.message?.content?.trim();
+    if (!answer) throw new Error("A Venice AI não retornou uma resposta. Tente novamente.");
+    waiting.textContent = answer;
+    chatHistory.push({ role: "model", parts: [{ text: answer }] });
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  } catch (error) {
+    waiting.textContent = "Não consegui responder agora. " + (error?.message || "Verifique sua chave da API e a conexão, depois tente novamente.");
+  } finally {
+    chatSend.disabled = false;
+    chatSend.textContent = "Enviar";
+    chatInput.focus();
+  }
+});
+
+</script>
+</body>
+</html>

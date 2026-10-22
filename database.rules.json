@@ -1,0 +1,17 @@
+{
+  "rules": {
+    "relatos": {
+      ".read": true,
+      ".indexOn": ["criado_em"],
+      "$relatoId": {
+        ".write": "auth != null",
+        ".validate": "newData.hasChildren(['titulo', 'texto', 'criado_em'])",
+        "titulo": { ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length <= 100" },
+        "texto": { ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length <= 5000" },
+        "imagem_url": { ".validate": "!newData.exists() || (newData.isString() && newData.val().length <= 400000)" },
+        "criado_em": { ".validate": "newData.isNumber()" },
+        "$other": { ".validate": false }
+      }
+    }
+  }
+}
